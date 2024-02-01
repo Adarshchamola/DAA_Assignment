@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+#define MAX 100
+int linearsearch(int [], int, int, int);
+int main()
+{
+    int i=0, arr[MAX], n, key;
+    cout<<"Enter the number of elements in array: ";
+    cin>>n;
+    for(int j=0; j<n; j++)
+    {
+        cout<<"Enter the element: ";
+        cin>>arr[j];
+    }
+    cout<<"Enter the key to found: ";
+    cin>>key;
+    if(arr[i]==key)
+    {
+        cout<<"Present"<<endl;
+    }
+    else
+    {
+        i=1;
+        while(i<n && arr[i]<=key)
+        {
+            i = i*2;
+        }
+        int a = linearsearch(arr, i/2, min(i,n-1),key,&comp);
+        if(a==1)
+            cout<<"Present"<<endl;
+        else
+            cout<<"Not-Present"<<endl;
+    }
+}
+
+int linearsearch(int a[], int lb, int ub, int k)
+{
+    for(int i=lb; i<=ub; i++)
+    {
+        if(a[i]==k)
+            return 1;
+    }
+    return 0;
+}
